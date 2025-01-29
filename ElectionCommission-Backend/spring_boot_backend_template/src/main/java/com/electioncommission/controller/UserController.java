@@ -2,8 +2,6 @@ package com.electioncommission.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,8 +18,6 @@ import com.electioncommission.services.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
-
-
 @RestController
 @RequestMapping("/User")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -29,11 +25,19 @@ import io.swagger.v3.oas.annotations.Operation;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+
 	@PostMapping("/register")
-	public ResponseEntity<?> Register(@RequestBody UserReqDto user)
-	{
+	public ResponseEntity<?> Register(@RequestBody UserReqDto user) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(userService.RegisterUser(user));
+	}
+
+	@PostMapping("/login")
+	public ResponseEntity<?> Login(@RequestBody UserAuthDto userAuth) {
+		try {
+			return ResponseEntity.ok(userService.LoginUser(userAuth));
+		} catch (RuntimeException e) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiResponse(e.getMessage()));
+		}
 	}
 
 }
