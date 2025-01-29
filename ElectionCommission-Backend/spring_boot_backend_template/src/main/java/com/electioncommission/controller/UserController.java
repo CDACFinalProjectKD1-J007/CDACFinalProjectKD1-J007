@@ -17,8 +17,6 @@ import com.electioncommission.services.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
-
-
 @RestController
 @RequestMapping("/User")
 @CrossOrigin(origins = "http://localhost:3000")
@@ -26,23 +24,19 @@ import io.swagger.v3.oas.annotations.Operation;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+
+	@PostMapping("/register")
+	public ResponseEntity<?> Register(@RequestBody UserReqDto user) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(userService.RegisterUser(user));
+	}
+
 	@PostMapping("/login")
-	public ResponseEntity<?> Login(@RequestBody UserAuthDto userAuth)
-	{	
+	public ResponseEntity<?> Login(@RequestBody UserAuthDto userAuth) {
 		try {
 			return ResponseEntity.ok(userService.LoginUser(userAuth));
 		} catch (RuntimeException e) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body(new ApiResponse(e.getMessage()));
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ApiResponse(e.getMessage()));
 		}
-	}
-	
-	
-	@PostMapping("/register")
-	public ResponseEntity<?> Register(@RequestBody UserReqDto user)
-	{
-		return ResponseEntity.status(HttpStatus.CREATED).body(userService.RegisterUser(user));
 	}
 
 }

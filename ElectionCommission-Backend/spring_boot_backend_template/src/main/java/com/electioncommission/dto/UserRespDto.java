@@ -14,14 +14,16 @@ import com.electioncommission.enums.Status;
 @Setter
 @ToString(callSuper = true)
 public class UserRespDto {
+	
 	private String firstName;
 	private String lastName;
-	private String email;
-	private String phone;
 	private Gender gender;
-	private String address;
-	private String district;
-	private String state;
-	private Date dob;
 	private Role role;
+	private String phone;
+	private String email;
+	private String address;
+	private String state;
+	private String district;
+	private Date dob;
+	private Status status;
 }
