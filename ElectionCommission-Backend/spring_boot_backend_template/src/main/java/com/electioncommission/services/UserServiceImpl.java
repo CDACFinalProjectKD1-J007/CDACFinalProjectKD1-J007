@@ -25,19 +25,17 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String RegisterUser(UserReqDto user) {
-		User u=modelMapper.map(user, User.class);
+		User u = modelMapper.map(user, User.class);
 		User persistentUser = userDao.save(u);
 		return "Added New Category";
 	}
-	
+
 	@Override
 	public UserRespDto LoginUser(UserAuthDto user) {
 		User u = userDao.findByEmailAndPassword(user.getEmail(), user.getPassword())
-				.orElseThrow(()->
-				new ApiException("Invallid Email or Password"));
-		
+				.orElseThrow(() -> new ApiException("Invallid Email or Password"));
+
 		return modelMapper.map(u, UserRespDto.class);
 	}
-
 
 }
