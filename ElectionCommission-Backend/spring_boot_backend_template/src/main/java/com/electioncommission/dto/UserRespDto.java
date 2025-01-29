@@ -2,15 +2,13 @@ package com.electioncommission.dto;
 
 import java.sql.Date;
 
-import com.electioncommission.pojos.Gender;
-import com.electioncommission.pojos.Role;
-import com.electioncommission.pojos.Status;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
+import com.electioncommission.enums.Gender;
+import com.electioncommission.enums.Role;
+import com.electioncommission.enums.Status;
 @NoArgsConstructor
 @Getter
 @Setter

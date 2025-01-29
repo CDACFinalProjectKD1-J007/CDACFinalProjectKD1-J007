@@ -1,5 +1,4 @@
 package com.electioncommission.pojos;
-
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -11,6 +10,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import com.electioncommission.enums.Gender;
+import com.electioncommission.enums.Role;
+import com.electioncommission.enums.Status;
 
 @Entity
 @Table(name="user")
