@@ -7,6 +7,4 @@ import com.electioncommission.dto.UserRespDto;
 public interface UserService {
 	UserRespDto LoginUser(UserAuthDto user); 
 	String RegisterUser(UserReqDto user);
-	UserRespDto LoginUser(UserAuthDto user); 
-
 }
