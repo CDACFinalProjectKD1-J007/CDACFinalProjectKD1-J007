@@ -1,0 +1,51 @@
+
+.profile-page {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li:hover {
+    color: #007bff;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .profile-summary {
+    margin-bottom: 40px;
+  }
+  
+  .profile-summary h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-summary p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
