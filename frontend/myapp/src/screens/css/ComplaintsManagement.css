@@ -1,0 +1,109 @@
+/* Container styles */
+.complaints-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styles */
+  .complaints-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Complaints list styling */
+  .complaints-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .complaint-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title and description */
+  .complaint-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #007bff;
+  }
+  
+  .complaint-item p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  /* Priority badge */
+  .priority-high {
+    color: white;
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+  
+  .priority-medium {
+    color: white;
+    background-color: #ffc107;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+  
+  .priority-low {
+    color: white;
+    background-color: #28a745;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+  
+  /* Select dropdown */
+  .complaint-item select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  /* Button hover effect */
+  .complaint-item select:hover {
+    border-color: #007bff;
+  }
+  
+
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .complaints-container {
+      padding: 15px;
+    }
+  
+    .complaint-item {
+      padding: 10px;
+    }
+  
+    .complaint-item h3 {
+      font-size: 1rem;
+    }
+  
+    .complaint-item p {
+      font-size: 0.85rem;
+    }
+  }
+  
