@@ -1,0 +1,24 @@
+.voter-id-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .voter-id-content {
+    margin-top: 20px;
+  }
+  
+  .voter-id-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .no-image {
+    margin-top: 20px;
+  }
+  
+  input[type="file"] {
+    margin-top: 10px;
+  }
+  
