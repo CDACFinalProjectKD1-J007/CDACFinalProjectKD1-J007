@@ -1,39 +1,135 @@
+/* SearchVoter.css */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --border-color: #ccc;
+  --error-color: #dc3545;
+  --font-family: 'Arial', sans-serif;
+}
+
 .login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+  max-width: 800px; /* Increased width for better table display */
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+}
+
+.login-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.login-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: var(--error-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.voter-details {
+  background-color: var(--background-color);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.voter-details h2 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.voter-details p {
+  margin: 10px 0;
+  color: var(--text-color);
+}
+
+.voter-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.voter-table th,
+.voter-table td {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  text-align: left;
+}
+
+.voter-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.voter-table tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+.voter-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    margin: 20px auto;
+    padding: 15px;
   }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
+
+  .voter-table th,
+  .voter-table td {
+    padding: 8px;
+    font-size: 0.9rem;
   }
-  
-  .login-form label {
-    margin-bottom: 5px;
+
+  .voter-details {
+    padding: 15px;
   }
-  
-  .login-form input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 90%;
-  }
-  
-  .login-form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-form button:hover {
-    background-color: #0056b3;
-  }
-  
+}
