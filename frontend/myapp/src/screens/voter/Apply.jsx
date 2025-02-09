@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function VoterCardApplication() {
   const userId = localStorage.getItem("userId");
+  console.log("User ID from localStorage:", userId);
 
   const handleApply = async () => {
     try {
@@ -15,14 +16,19 @@ function VoterCardApplication() {
 
       const requestBody = {
         user: { userId: parseInt(userId) },
-        status: "Pending"
+        status: "Pending",
       };
 
       const response = await axios.post("http://localhost:8080/api/applications", requestBody);
-      toast.success("Application ID created successfully: " + response.data.applicationId);
+
+      if (response.data.applicationId) {
+        toast.success("Application ID created successfully: " + response.data.applicationId);
+      } else {
+        toast.error("Error: Application ID was not created.");
+      }
     } catch (error) {
       console.error("Error creating application ID:", error);
-      toast.error("only one application ID can be created");
+      toast.error("Only one application ID can be created or an error occurred.");
     }
   };
 
@@ -32,30 +38,39 @@ function VoterCardApplication() {
         toast.error("User ID not found. Please log in again.");
         return;
       }
-
+  
       let applicationId;
       try {
-        const applicationResponse = await axios.get(`http://localhost:8080/api/applications/user/${userId}`);
-        if (!applicationResponse.data || !applicationResponse.data.applicationId) {
-          toast.error("Delivery already placed");
+       
+        const applicationResponse = await axios.get(`http://localhost:8080/api/delivery-status/user/${userId}`);
+        applicationId = applicationResponse.data.applicationId; 
+  
+        if (!applicationId) {
+          toast.error("No application found. Please apply first.");
           return;
         }
-        applicationId = applicationResponse.data.applicationId;
       } catch (error) {
-        toast.error("No application found. Please apply first.");
+        console.error("Error fetching application:", error);
+        toast.error("application not found. Please apply first.");
         return;
       }
-
-      const response = await axios.post("http://localhost:8080/api/delivery-status/create", { applicationId });
-
-      if (response.status === 200) {
+  
+      
+      const response = await fetch("http://localhost:8080/api/delivery-status/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ applicationId }),
+      });
+  
+      const data = await response.text();
+      if (response.ok) {
         toast.success("Delivery created successfully!");
       } else {
-        toast.error("Error: " + response.data);
+        toast.error("Error: " + data);
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error(" delivery already created.");
+      toast.error("Failed to create delivery.");
     }
   };
 
@@ -76,7 +91,6 @@ function VoterCardApplication() {
 
       toast.success(`Your Voter ID: ${voterId}`);
 
-     
       await axios.put(`http://localhost:8080/api/applications/user/${userId}/voter-id`, { voterId });
     } catch (error) {
       console.error("Error retrieving voter ID:", error);
