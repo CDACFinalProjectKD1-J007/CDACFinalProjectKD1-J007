@@ -106,4 +106,34 @@
       font-size: 0.85rem;
     }
   }
+  .complaints-management-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .complaints-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .complaint-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .priority-low {
+    color: green;
+  }
+  
+  .priority-medium {
+    color: orange;
+  }
+  
+  .priority-high {
+    color: red;
+  }
   

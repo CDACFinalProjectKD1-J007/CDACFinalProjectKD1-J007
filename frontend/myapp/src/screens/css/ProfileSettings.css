@@ -1,4 +1,33 @@
+.navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
 
+.navbar.horizontal-navbar .navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-links button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.navbar-links button:hover {
+  text-decoration: underline;
+}
 .profile-settings {
   max-width: 500px;
   margin: 50px auto;

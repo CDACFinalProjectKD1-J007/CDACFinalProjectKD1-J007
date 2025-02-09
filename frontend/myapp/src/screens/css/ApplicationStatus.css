@@ -1,0 +1,154 @@
+/* ApplicationStatus.css */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --border-color: #ccc;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --font-family: 'Arial', sans-serif;
+}
+
+.application-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-family);
+}
+
+.application-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.date-filter,
+.status-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.date-filter label,
+.status-filter label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.date-filter input,
+.status-filter select {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.date-filter button,
+.status-filter button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.date-filter button:hover,
+.status-filter button:hover {
+  background-color: #0056b3;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.applications-table th,
+.applications-table td {
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  text-align: left;
+}
+
+.applications-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.applications-table tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+.applications-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.applications-table select {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.applications-table button {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.applications-table button:hover {
+  background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .application-container {
+    padding: 15px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-filter,
+  .status-filter {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .applications-table th,
+  .applications-table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .applications-table select,
+  .applications-table button {
+    width: 100%;
+  }
+}

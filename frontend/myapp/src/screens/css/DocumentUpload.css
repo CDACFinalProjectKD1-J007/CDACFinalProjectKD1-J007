@@ -1,0 +1,134 @@
+/* DocumentUpload.css */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --border-color: #ccc;
+  --error-color: #dc3545;
+  --success-color: #28a745;
+  --font-family: 'Arial', sans-serif;
+}
+
+.document-upload-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-family);
+}
+
+.document-upload-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.document-upload-container h2 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.document-upload-container h3 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+.document-upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.document-upload-form label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.document-upload-form input[type="file"] {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.document-upload-form button {
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.document-upload-form button:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+}
+
+.document-upload-form button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.uploaded-documents {
+  margin-top: 20px;
+}
+
+.uploaded-documents h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.document-preview {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.document-preview p {
+  margin: 5px 0;
+  color: var(--text-color);
+}
+
+.document-preview a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.document-preview a:hover {
+  color: #0056b3;
+}
+
+.document-preview img {
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .document-upload-container {
+    padding: 15px;
+  }
+
+  .document-upload-form input[type="file"] {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .document-upload-form button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

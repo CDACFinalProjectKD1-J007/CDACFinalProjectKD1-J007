@@ -1,24 +1,71 @@
-.voter-id-container {
-    text-align: center;
-    padding: 20px;
+/* VoterIDPage.css */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --border-color: #ccc;
+  --font-family: 'Arial', sans-serif;
+}
+
+.voter-id-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family);
+}
+
+.voter-id-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.card-content {
+  margin-top: 20px;
+}
+
+.card-content img {
+  width: 150px;
+  height: 180px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.card-content p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: var(--text-color);
+}
+
+.card-content p strong {
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .voter-id-card {
+    padding: 15px;
   }
-  
-  .voter-id-content {
-    margin-top: 20px;
+
+  .voter-id-card h2 {
+    font-size: 20px;
   }
-  
-  .voter-id-image img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    padding: 10px;
+
+  .card-content img {
+    width: 120px;
+    height: 150px;
   }
-  
-  .no-image {
-    margin-top: 20px;
+
+  .card-content p {
+    font-size: 14px;
   }
-  
-  input[type="file"] {
-    margin-top: 10px;
-  }
-  
+}

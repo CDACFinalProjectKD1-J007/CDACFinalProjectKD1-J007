@@ -3,13 +3,18 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./css/UserLogin.css"
 
-
 function Signup() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     password: '',
     confirmPassword: '',
+    gender: '', 
+    district: '',
+    phoneNumber: '',
+    address: '',
+    state: '',
+    dob: '',
   });
 
   const handleChange = (e) => {
@@ -17,7 +22,7 @@ function Signup() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { fullName, email, password, confirmPassword } = formData;
 
@@ -31,15 +36,36 @@ function Signup() {
       return;
     }
 
-    toast.success('Sign-Up Successful!');
-    console.log('Sign-Up Data:', formData);
+    try {
+      const response = await fetch("http://localhost:8080/api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: fullName,
+          email: email,
+          password: password,
+          role: "Voter",  
+          gender: formData.gender,
+          district: formData.district,
+          phoneNumber: formData.phoneNumber,
+          address: formData.address,
+          state: formData.state,
+          dob: formData.dob,
+        }),
+      });
 
-    setFormData({
-      fullName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    });
+      if (response.ok) {
+        const result = await response.json();
+        toast.success("Sign-Up Successful!");
+        console.log("User signed up:", result);
+      } else {
+        toast.error("Sign-Up failed. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An unexpected error occurred. Please try again.");
+    }
   };
 
   return (
@@ -47,7 +73,6 @@ function Signup() {
       <div className="login-container">
         <h1>Sign Up</h1>
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="fullName">Full Name</label>
           <input
             type="text"
             name="fullName"
@@ -56,8 +81,6 @@ function Signup() {
             onChange={handleChange}
             required
           />
-
-          <label htmlFor="email">Email Address</label>
           <input
             type="email"
             name="email"
@@ -66,8 +89,6 @@ function Signup() {
             onChange={handleChange}
             required
           />
-
-          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
@@ -76,8 +97,6 @@ function Signup() {
             onChange={handleChange}
             required
           />
-
-          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             type="password"
             name="confirmPassword"
@@ -86,10 +105,58 @@ function Signup() {
             onChange={handleChange}
             required
           />
-
-          <button type="submit" className="submit-btn">
-            Sign Up
-          </button>
+          <select
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Select Gender</option>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+            <option value="OTHER">Other</option>
+          </select>
+          <input
+            type="text"
+            name="district"
+            placeholder="District"
+            value={formData.district}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            value={formData.address}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="state"
+            placeholder="State"
+            value={formData.state}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="date"
+            name="dob"
+            placeholder="Date of Birth"
+            value={formData.dob}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="submit-btn">Sign Up</button>
         </form>
         <ToastContainer />
       </div>
