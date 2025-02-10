@@ -2,9 +2,9 @@ import { ToastContainer } from "react-toastify";
 import UserLogin from "./screens/Login";
 import SignUp from "./screens/signup";
 import { useState } from "react";
-import "./screens/css/homepage.css"
+import "./screens/css/homepage.css";
 
-function Homepage () {
+function Homepage() {
     const [activeTab, setActiveTab] = useState('signup');
   
     const handleTabChange = (tab) => {
@@ -12,7 +12,6 @@ function Homepage () {
     };
   
     return (
-      
       <div className="container">
         <div className="tabs">
           <button
@@ -33,9 +32,16 @@ function Homepage () {
         {activeTab === 'user' && <UserLogin />}
         {activeTab === 'signup' && <SignUp />}
         <ToastContainer position="top-center" autoClose={3000} />
-    </div>
 
-  );
+      
+        <div className="pdf-download" style={{ position: 'absolute', right: '20px', top: '20px' }}>
+          <a href="/HowtogetVoterid.pdf"
+          download style={{ textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>
+            📄 Download Voter ID Guide (PDF)
+          </a>
+        </div>
+      </div>
+    );
 };
 
 export default Homepage;
