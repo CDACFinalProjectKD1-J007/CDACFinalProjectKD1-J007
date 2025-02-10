@@ -36,9 +36,15 @@ function Homepage() {
       
         <div className="pdf-download" style={{ position: 'absolute', right: '20px', top: '20px' }}>
           <a href="/HowtogetVoterid.pdf"
-          download style={{ textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>
+          download style={{ textDecoration: 'none', color: 'red', fontWeight: 'bold' }}>
             📄 Download Voter ID Guide (PDF)
           </a>
+        </div >
+        <div className="pdf-download" style={{ position: 'absolute', right: '100px', top: '60px' }}>
+        <a href="TopFAQs.pdf" 
+        style={{ textDecoration: 'none', color: 'red', fontWeight: 'bold' }}>
+       📄 Top 6 FAQS
+        </a>
         </div>
       </div>
     );
