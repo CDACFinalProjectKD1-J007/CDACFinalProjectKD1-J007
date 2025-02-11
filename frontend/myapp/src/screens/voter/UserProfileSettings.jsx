@@ -151,12 +151,18 @@ function UserProfileSettings() {
             value={profile.address}
             onChange={(e) => setProfile({ ...profile, address: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder="Status"
+          
+          <select
+            name="status"
             value={profile.status}
-            onChange={(e) => setProfile({ ...profile, status: e.target.value })}
-          />
+       onChange={(e) => setProfile({ ...profile, status:e.target.value })}
+            
+          >
+            <option value="" disabled>Status</option>
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="INACTIVE">INACTIVE</option>
+                  </select>
+
           <button onClick={handleProfileUpdate} disabled={loading}>
             {loading ? "Updating..." : "Update Profile"}
           </button>
@@ -168,3 +174,7 @@ function UserProfileSettings() {
 }
 
 export default UserProfileSettings;
+
+
+
+
