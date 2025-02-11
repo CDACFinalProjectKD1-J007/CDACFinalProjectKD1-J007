@@ -163,6 +163,15 @@ public class UserController {
                     .body(new ErrorResponse("An unexpected error occurred"));
         }
     }
+   
+
+        @PutMapping("/{id}")
+        public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+            User user = userService.updateUser(id, updatedUser);
+            return ResponseEntity.ok(user);
+        }
+    
+
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a user")
